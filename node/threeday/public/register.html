@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<!-- <form action="/register" method="post"> -->
+			<p>
+				用户名：<input type="text" name="username" value="" />
+			</p>
+			<p>
+				密码：<input type="text" name="password" value="" />
+			</p>
+			<p>
+				邮箱：<input type="text" name="email" value="" />
+			</p>
+			<p>
+				电话：<input type="text" name="phone" value="" />
+			</p>
+			<!-- <input type="submit" value="注册" /> -->
+			<input type="button" value="注册" id="btn"/>
+			<input type="button" value="用户" id="btnuser"/>
+		<!-- </form> -->
+		<script type="text/javascript">
+			$("#btnuser").click(function(){
+				$.ajax({
+					url:"http://localhost:3000/userinfo",
+					type:"get",
+					data:{
+						username:$("input").eq(0).val(),
+						// password:$("input").eq(1).val(),
+						// email:$("input").eq(2).val(),
+						// phone:$("input").eq(3).val(),
+					},
+					success:function(res){
+						console.log(res);
+					}
+				})
+			})
+		</script>
+	</body>
+</html>
